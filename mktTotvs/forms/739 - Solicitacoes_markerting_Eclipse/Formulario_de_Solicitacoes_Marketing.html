@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulário Solicitações Marketing</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="/resources/style-guide/css/fluig-style-guide.min.css">                                                                                                   
+	<script src="/resources/js/jquery/jquery.js"></script>
+	<script src="/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="/resources/js/mustache/mustache-min.js"></script>
+	<script src="/resources/style-guide/js/fluig-style-guide.min.js"></script>
+	<script src="js/desabilitar_div.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/fluig-style-guide.min.css">
+	
+	<!-- CUSTOM -->
+	<link href="/resources/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+	<link href="/resources/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+	<script src="/resources/style-guide/js/fluig-style-guide-filter.min.js"></script>
+	<script src="/resources/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+	<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet'/>
+</head>
+
+
+
+<body onload="opcao();"> 
+
+<div class="fluig-style-guide">
+<form name="form" role="form">
+	<div class="page-header">
+		<header class="main-header clearfix">
+			<div class="wrapper">
+				<div class="row">
+					<div class="col-md-12 title">
+						<font color="#ad0202"><h1 class="text-center">Formulário de Solicitações Marketing</h1></font>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading"><h3 class="panel-title"><b>Dados da Solicitação</b></h3></div>
+
+		<div class="panel-body">
+			<div class="row">
+				<div class="form-group col-md-2">
+					<label for="numerosolicitacao">Número da Solicitação</label>
+					<div class="input-group">
+						<span class="input-group-addon fluigicon fluigicon-brand fluigicon-md"></span>
+						<input class="form-control" type="text" name="numerosolicitacao" id="numerosolicitacao" readonly>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-7">
+					<label for="solicitante">Solicitante</label>
+					<div class="input-group">
+						<span class="input-group-addon fluigicon fluigicon-user fluigicon-md"></span>
+						<input class="form-control" type="text" name="solicitante" id="solicitante" readonly>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-3">
+					<label for="datasolicitacao">Data da Solicitação</label>
+					<div class="input-group">
+						<span class="input-group-addon fluigicon fluigicon-calendar fluigicon-md"></span>
+						<input class="form-control" name="datasolicitacao" id="datasolicitacao" readonly>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-primary" id="dadosSolicitante">
+		<div class="panel-heading">Dados da Solicitação</div>
+			
+		<div class="panel-body">
+			<div class="row">
+				<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nome_soli">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Nome do solicitante *</label>
+							<input type="text" class="form-control" name="nome_soli" value="" placeholder="" data-size="big">
+						</div>
+					</div>
+				</div>
+	
+				<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="email_soli">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Email do solicitante *</label> 
+							<input type="text" class="form-control" name="email_soli" value="" placeholder="" data-size="big">
+						</div>
+					</div>
+					
+				<div class="form-field" data-type="combo" data-show-properties="" data-field-name="dep_soli">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Departamento do solicitante *</label> 
+								<select class="form-control" name="dep_soli">
+									<option value="">Selecione seu departamento</option>
+									<option value="Administrativo">Administrativo</option>
+									<option value="Comercial">Comercial</option>
+									<option value="Financeiro">Financeiro</option>
+									<option value="Fluig">Fluig</option>
+									<option value="Recepção">Recepção</option>
+									<option value="Recursos Humanos">Recursos Humanos</option>
+								</select>
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="form-field" data-type="combo" data-show-properties="" data-field-name="tipo_peca" style="position: relative; left: 0px; top: 0px;">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Qual tipo de peça está sendo solicitada? *</label>
+							<select class="form-control" name="tipo_peca" id="tipo_peca" onchange="opcao()">
+								<option value="" selected="selected">Selecione o tipo de peça</option>
+								<option value="Adesivo">Adesivo</option>
+								<option value="Anuncio_midia">Anúncio Mídia (Revista, Outdoor, afins)</option>
+								<option value="Anuncio_vaga">Anúncio Vaga</option>
+								<option value="Backdrop">BackDrop</option>
+								<option value="Banner">Banner</option>
+								<option value="Caixa">Caixa</option>
+								<option value="Cartao_impresso">Cartão Impresso</option>
+								<option value="Cartaz">Cartaz</option>
+								<option value="Comunicado_interno">Comunicado Interno (RH)</option>
+								<option value="Convite">Convite</option>
+								<option value="Cupom">Cupom</option>
+								<option value="Flyer_panfleto">Flyer / Panfleto</option>
+								<option value="Kit_eventos">Kit Eventos (Impresso e Digital)</option>
+								<option value="Manual">Manual</option>
+								<option value="Papelaria">Papelaria (Cartão de visitas, Envelope, Bloco)</option>
+								<option value="Placa">Placa</option>
+								<option value="TBC">TBC Ligados</option>
+								<option value="Outros">Outros (Especificar no campo texto)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+	
+				<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="tamanho_peca_cm" id="div_tamanho_peca_cm" style="display:">
+					<div class="form-input">
+						<div class="form-group col-md-2">
+							<label>Largura *</label>
+							<input type="number" class="form-control" name="tamanho_peca_lar" value="" data-size="big" style="width: 100%;">
+						</div>
+	
+						<div class="form-group col-md-2">
+							<label>Altura *</label>
+							<input type="number" class="form-control" name="tamanho_peca_alt" value="" data-size="big" style="width: 100%;">
+						</div>
+	
+						<div class="form-group col-md-4">
+							<label for="dimensao">Dimensão *</label>
+							<select class="form-control" id="dimensao" name="dimensao">
+								<option value="">Informe a dimensão</option>
+								<option value="CM">Centímetros</option>
+								<option value="MM">Milímetros</option>
+								<option value="PX">Pixels</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="tipo_peca_text" id="div_peca_outros" style="position: relative; left: 0px; top: 0px; display: none">
+					<div class="form-input">
+						<div class="form-group col-md-12">
+							<label>Especifique aqui qual o tipo de peça está solicitando *</label>
+							<textarea class="form-control" rows="3" name="tipo_peca_text" placeholder="Especificar com o máximo de informações possiveis" data-size="big"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			<div class="row">
+				<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nome_projeto">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Nome do projeto *</label>
+							<input type="text" class="form-control" name="nome_projeto" value="" data-size="big">
+						</div>
+					</div>
+				</div>
+	
+				<div class="form-group col-md-4">
+					<label for="publico_alvo">Publico alvo *</label>
+					<select class="form-control" id="publico_alvo" name="publico_alvo">
+						<option value="">Selecione o publico alvo</option>
+						<option value="clientes">Clientes</option>
+						<option value="equipe_adm">Equipe administrativa</option>
+						<option value="equipe_com">Equipe comercial</option>
+						<option value="publico_ext">Publico externo</option>
+						<option value="todos_cal">Todos os colaboradores</option>
+					</select>
+				</div>
+				
+				<div class="form-field" data-type="date" data-show-properties="" data-field-name="data_entrega" id=data_entrega>
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Data da necessidade do projeto *</label>
+							<input id="dataentrega" type="text" class="form-control" name="dataentrega">
+						</div>
+					</div>
+				</div>
+			</div>
+				
+			<div class="row">
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="info_titulo">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Informe o titulo do projeto *</label>
+							<textarea class="form-control" rows="3" name="info_titulo" placeholder="" data-size="big"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="info_conteudo">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Informe o conteúdo do projeto *</label>
+							<textarea class="form-control" rows="3" name="info_conteudo" placeholder="" data-size="big"></textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="info_derivacao">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Haverá derivação da peça? * </label>
+							<textarea class="form-control" rows="3" name="info_derivacao" placeholder="Se Sim, descrever o formato. Ex: Cartão impresso, email, Whatsapp. Caso contrário informar Não." data-size="big"></textarea>
+						</div>
+					</div>
+				</div>				
+			</div>							
+			</div>									
+		</div>
+
+	<div class="panel panel-primary" id="div_aprov_solicitacao">
+		<div class="panel-heading">Aprovação da Solicitação</div>
+	
+		<div class="panel-body">
+			<div class="row">
+				
+				<!-- Campo de aprovação da solicitação "tipo radio"
+				
+				<div class="form-field" data-type="radio" data-show-properties="" data-field-name="aprov_soli">
+					<div class="form-input">
+						<div class="form-group col-md-4">
+							<label>Deseja aprovar a solicitação?</label>
+							<div class="radio-options">
+								<div class="radio"><label><input type="radio" name="aprov_soli" value="Sim">Sim</label></div>
+								<div class="radio"><label><input type="radio" name="aprov_soli" value="Não">Não</label></div>
+								<div class="radio"><label><input type="radio" name="aprov_soli" value="Solicitar alteração">Solicitar alteração</label></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				-->
+				
+				<div class="form-group col-md-4">
+					<label for="aprov_soli">Deseja aprovar a solicitação? *</label>
+					<select class="form-control" id="aprov_soli" name="aprov_soli">
+						<option value="">Escolha uma opção..</option>
+						<option value="Sim">Sim</option>
+						<option value="Não">Não</option>
+						<option value="Solicitar alteração">Solicitar alteração</option>
+					</select>
+				</div>
+
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="info_aprov_soli">
+					<div class="form-input">
+						<div class="form-group col-md-8">
+							<label>Observações do aprovador sobre a solicitação:</label>
+							<textarea class="form-control" rows="3" name="info_aprov_soli" placeholder="" data-size="big"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-primary" id="div_dev_solicitacao">
+		<div class="panel-heading">Desenvolvimento da Solicitação</div>
+		
+		<div class="panel-body">
+			<div class="row">
+				<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="nome_resp">
+					<div class="form-input">
+						<div class="form-group col-md-6">
+							<label>Nome do responsável pelo projeto *</label>
+							<input type="text" class="form-control" name="nome_resp" value="" placeholder="" data-size="big">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-field" data-type="textbox" data-show-properties="" data-field-name="email_resp">
+					<div class="form-input">
+						<div class="form-group col-md-6">
+							<label>Email do responsável pelo projeto *</label>
+							<input type="text" class="form-control" name="email_resp" value="" placeholder="" data-size="big">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-field" data-type="date" data-show-properties="" data-field-name="data_inicio_dev" style="position: relative; left: 0px; top: 0px;">
+					<div class="form-input">
+						<div class="form-group col-md-6">
+							<label>Data inicio do desenvolvimento *</label>
+							<input id="date15" type="text" class="form-control" name="data_inicio_dev" data-date="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-field" data-type="date" data-show-properties="" data-field-name="data_fim_dev">
+					<div class="form-input">
+						<div class="form-group col-md-6">
+							<label>Data conclusão do desenvolvimento *</label>
+							<input id="date16" type="text" class="form-control" name="data_fim_dev" data-date="">
+						</div>
+					</div>
+				</div>
+
+				<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="obs_resp_projet" style="position: relative; left: 0px; top: 0px;">
+					<div class="form-input">
+						<div class="form-group col-md-12">
+							<label>Observações do responsável pelo projeto *</label>
+							<textarea class="form-control" rows="3" name="obs_resp_projet" placeholder="" data-size="big"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-primary" id="div_valid_projeto">
+		<div class="panel-heading">Validação do Projeto</div>
+		
+		<div class="panel-body">
+			<div class="form-field" data-type="radio" data-show-properties="" data-field-name="soli_aprov_proj" style="position: relative; left: 0px; top: 0px;">
+				<div class="form-input">
+					<div class="form-group col-md-4">
+						<label>Validação do projeto pelo solicitante *</label>
+						<div class="radio-options">
+							<div class="radio"><label><input type="radio" name="soli_aprov_proj" value="De acordo">De acordo</label></div>
+							<div class="radio"><label><input type="radio" name="soli_aprov_proj" value="Solicitar alteração">Solicitar alteração</label></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="soli_obs_proj" style="position: relative; left: 0px; top: 0px;">
+				<div class="form-input">
+					<div class="form-group col-md-8">
+						<label>Observações do solicitante sobre a validação do projeto *</label>
+						<textarea class="form-control" rows="3" name="soli_obs_proj" placeholder="" data-size="big"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-primary" id="div_aprov_projeto">
+		<div class="panel-heading">Aprovação do Projeto</div>
+		
+		<div class="panel-body">
+		
+			<!-- Campo aprovar projeto "tipo radio"
+			
+			<div class="form-field" data-type="radio" data-show-properties="" data-field-name="aprov_projeto" style="position: relative; left: 0px; top: 0px;">
+				<div class="form-input">
+					<div class="form-group col-md-4">
+						<label>Deseja aprovar o projeto? *</label>
+						<div class="radio-options">
+							<div class="radio"><label><input type="radio" name="aprov_projeto" value="Sim">Sim</label></div>
+							<div class="radio"><label><input type="radio" name="aprov_projeto" value="Solicitar alteração">Solicitar alteração</label></div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			
+			<div class="form-group col-md-4">
+				<label for="aprov_projeto">Deseja aprovar o projeto? *</label>
+				<select class="form-control" id="aprov_projeto" name="aprov_projeto">
+					<option value="">Escolha uma opção..</option>
+					<option value="Sim">Sim</option>
+					<option value="Solicitar alteração">Solicitar alteração</option>
+				</select>
+			</div>
+
+			<div class="form-field" data-type="textarea" data-show-properties="" data-field-name="info_aprov_proj">
+				<div class="form-input">
+					<div class="form-group col-md-8">
+						<label>Observações do aprovador sobre o projeto</label>
+						<textarea class="form-control" rows="3" name="info_aprov_proj" placeholder="" data-size="big"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</div>
+</body>
+
+<script type="text/javascript">
+		var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118; 
+		  
+		$(document).keydown(function (e) {
+			if (e.keyCode == ctrl) keyDown = true;
+		}).keyup(function (e) {
+			if (e.keyCode == ctrl) keyDown = false;
+		});
+		
+		$('[data-only-numbers]').on('keypress', function (e) {
+		    if (!e) {
+			    var e = window.event;
+			}
+			
+		    if (e.keyCode > 0 && e.which == 0) {
+		    	 return true;
+			}
+			
+		    if (e.keyCode) {
+		        code = e.keyCode;
+			} else if (e.which) {
+		    	code = e.which;
+			}
+
+			if(code == 46) {
+				return true;
+			}
+			
+		    var character = String.fromCharCode(code);
+		    if (character == '\b' || character == ' ' || character == '\t') {
+		    	 return true;
+			}
+		    if (keyDown && (code == vKey || code == Vkey)) {
+		    	return (character);
+			} else  {
+				return (/[0-9]$/.test(character));
+			}
+		}).on('focusout', function (e) {
+		    var $this = $(this);
+			if($this.val() == "") {
+				return true;
+			}
+		    $this.val($this.val().replace(/[^0-9\.]/g, ''));
+		}).on('paste', function (e) {
+		    var $this = $(this);
+		    setTimeout(function () {
+		        $this.val($this.val().replace(/[^0-9\.]/g, ''));
+		    }, 5);
+		 });				
+
+		
+
+		$('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function(){
+			validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+		});
+
+		$('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function(){
+			validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+		});
+
+		function validationFieldsForm(field, type){
+			if(type === "checkbox" || type === "radio"){
+				if(!field.is(':checked')){
+					field.parents('.form-field').addClass('required');
+				}else{
+					field.parents('.form-field').removeClass('required');
+				}
+			}else{
+				if(!field.val().trim()){
+					field.parents('.form-field').addClass('required');
+				}else{
+					field.parents('.form-field').removeClass('required');
+				}
+			}
+		}
+
+		var $zoomPreview = $(".zoom-preview");
+		if ($zoomPreview.length) {
+                  $zoomPreview.parent().removeClass("input-group");
+                  $zoomPreview.remove();
+              }
+
+		var ratings = $(".rating");
+		if (ratings.length > 0) ratingStars(ratings);
+		function ratingStars(stars) {
+			$.each(stars, function(i, obj) {
+                      var field = $(this).closest(".form-group").find(".rating-value");
+				var tgt = $(obj);
+				tgt.html("");
+				var rating = FLUIGC.stars(tgt, { value: field.val() });
+                      rating.on("click", function(o) {
+                          field.val($(this).index() + 1);
+                      });
+			});
+		}
+
+		$.each($("[data-date]"), function(i, o) {
+                  var id = $(o).attr("id");
+			FLUIGC.calendar("#" + id);
+		});
+
+		$(document).ready(function() {
+			$.each($("[data-date]"), function(i, o) {
+                   var id = $(o).attr("id");
+                   if($("#" + id).attr("readonly")) {
+                   	$("#" + id).data('DateTimePicker').disable();
+                   }
+			});
+		});
+</script>
+</html>
